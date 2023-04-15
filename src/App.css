@@ -334,3 +334,13 @@ canvas {
   outline: 1px solid orange;
   width: fit-content;
 }
+section .info {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  height: min-content;
+  width: 100%;
+}
+section .info > div {
+  width: 24vw;
+}

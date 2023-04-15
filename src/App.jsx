@@ -6,13 +6,14 @@ import VideoWrapper from "./components/VideoWrapper";
 import LabelWrapper from "./components/LabelWrapper";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const videoRef = useRef();
+  const [data, setData] = useState({ count: 0 });
 
+  const videoRef = useRef();
+  console.log(data);
   return (
     <div className="App">
-      <VideoWrapper videoRef={videoRef} />
-      <LabelWrapper videoRef={videoRef} />
+      <VideoWrapper videoRef={videoRef} data={data} />
+      <LabelWrapper videoRef={videoRef} data={data} setData={setData} />
     </div>
   );
 }

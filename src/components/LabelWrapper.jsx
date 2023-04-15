@@ -34,6 +34,20 @@ export default function LabelWrapper({ videoRef, data, setData }) {
       setError("select the shottype");
       return;
     }
+
+    localStorage.setItem(
+      "data",
+      JSON.stringify({
+        ...data,
+        [data.count]: {
+          timestamp: timeStamp,
+          cordinates: location,
+          WhoShotIt: { team: info.team, playerNumber: info.playerNo },
+          shottype: info.shottype,
+        },
+        count: data.count + 1,
+      })
+    );
     setData({
       ...data,
       [data.count]: {
@@ -48,7 +62,6 @@ export default function LabelWrapper({ videoRef, data, setData }) {
 
   useEffect(() => {
     setIspaused(false);
-
     setTimeStamp(null);
     setIsCanvasClicked(false);
     setLocation(null);

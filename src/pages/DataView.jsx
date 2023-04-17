@@ -16,6 +16,7 @@ const DataView = () => {
         <thead>
           <tr>
             <td>number</td>
+            <td>value</td>
             <td>time</td>
             <td>location</td>
             <td>team</td>
@@ -27,11 +28,15 @@ const DataView = () => {
           {entries.map((entry, idx) => (
             <tr key={idx}>
               <td>{idx + 1}</td>
+              <td>{entry.value}</td>
               <td>
                 {entry.timestamp.min + "m " + entry.timestamp.min + "sec"}
               </td>
               <td>
-                {"x : " + entry.cordinates.x + " y :" + entry.cordinates.y}
+                <tr>
+                  <td>{"x : " + entry.cordinates.x.toFixed(2)}</td>
+                  <td>{"y : " + entry.cordinates.y.toFixed(2)}</td>
+                </tr>
               </td>
               <td>{entry.WhoShotIt.team}</td>
               <td>{entry.WhoShotIt.playerNumber}</td>

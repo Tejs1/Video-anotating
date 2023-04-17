@@ -8,7 +8,7 @@ const ShotType = ({ info, setInfo }) => {
     `LAY UP`,
     `CATCH N SHOOT`,
     `DUNK`,
-    `Pink 'n' Roll`,
+    `Pick 'n' Roll`,
     `Hook Shoot`,
   ];
   function clickHandler(option) {

@@ -2,20 +2,22 @@ import { useState, useRef, useEffect } from "react";
 import CourtCanvas from "./CourtCanvas";
 import WhoShotIt from "./WhoShotIt";
 import ShotType from "./ShotType";
+import ShotResult from "./ShotResult";
 
 export default function LabelWrapper({ videoRef, data, setData }) {
   const [isPaused, setIspaused] = useState(false);
+  const [value, setValue] = useState(false);
   const [error, setError] = useState();
   const [timeStamp, setTimeStamp] = useState(null);
   const [isCanvasClicked, setIsCanvasClicked] = useState(false);
   const [location, setLocation] = useState(null);
   const [info, setInfo] = useState({});
 
-  const labelhandler = () => {
+  const labelhandler = (value) => {
     const minutes = parseInt(videoRef.current.currentTime / 60, 10);
     const seconds = Math.trunc(videoRef.current.currentTime % 60);
     setTimeStamp({ min: minutes, sec: seconds });
-    setIspaused(true);
+    setValue(value);
   };
   const formHandler = (e) => {
     if (!location) {
@@ -40,6 +42,7 @@ export default function LabelWrapper({ videoRef, data, setData }) {
       JSON.stringify({
         ...data,
         [data.count]: {
+          value: value,
           timestamp: timeStamp,
           cordinates: location,
           WhoShotIt: { team: info.team, playerNumber: info.playerNo },
@@ -76,7 +79,9 @@ export default function LabelWrapper({ videoRef, data, setData }) {
           </>
         ) : null}
       </h2>
-      <button onClick={labelhandler}>2 Pointer</button>
+      <button onClick={() => labelhandler("2 Pointer")}>2 Pointer</button>
+      <button onClick={() => labelhandler("3 Pointer")}>3 Pointer</button>
+      {value && <ShotResult value={value} setIspaused={setIspaused} />}
       {isPaused && (
         <>
           <CourtCanvas

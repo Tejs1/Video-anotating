@@ -55,6 +55,7 @@ body {
   justify-content: center;
   flex-direction: row;
   width: 100vw;
+  background-color: #242424;
 }
 section {
   width: 50vw;
@@ -96,4 +97,15 @@ section .info {
 }
 section .info > div {
   width: 24vw;
+}
+
+table td {
+  width: 6rem;
+}
+td:nth-child(4) {
+  width: 10rem;
+}
+td > tr > td {
+  text-align: left;
+  width: 5rem;
 }

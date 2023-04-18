@@ -8,30 +8,6 @@ export default function VideoWrapper({ videoRef, data }) {
     <section className="video-wrapper">
       <video ref={videoRef} controls src="/TIMER.mp4"></video>
       <Link to="data">Go to data</Link>
-      {/* { data.[0] ? && (
-      <>
-      <table>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Time</th>
-            <th>Type</th>
-            <th>Position</th>
-            <th>Team</th>
-            <th>Player No</th>
-            <th>Shot Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(data).map((entry, index) => (
-            <tr key={index}>
-              <td>{index}</td>
-              <td>{data.entry.timestamp.min}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </>)} */}
     </section>
   );
 }

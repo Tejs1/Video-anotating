@@ -1,0 +1,74 @@
+#root {
+  text-align: center;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.old section {
+  width: 50vw;
+  height: 100vh;
+  outline: 1px solid orange;
+}
+
+.old video {
+  width: 100%;
+}
+.old {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100vw;
+  background-color: #242424;
+}
+.old canvas {
+  background: url("./court1.jpg");
+  padding: 0;
+  margin: 0;
+}
+/* .label-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+} */
+.old .label-wrapper > div {
+  width: 100%;
+}
+.old .playerNumberDiv {
+  display: flex;
+  justify-content: center;
+}
+.old .playerNumberDiv > div {
+  outline: 1px solid orange;
+  width: fit-content;
+}
+.old section .info {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  height: min-content;
+  width: 100%;
+}
+.old section .info > div {
+  width: 24vw;
+}
+
+.old table td {
+  width: 6rem;
+}
+.old td:nth-child(4) {
+  width: 10rem;
+}
+.old td > tr > td {
+  text-align: left;
+  width: 5rem;
+}

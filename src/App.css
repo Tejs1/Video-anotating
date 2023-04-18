@@ -1,111 +1,28 @@
-#root {
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  margin: 0;
-}
-
 .App {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
   width: 100vw;
-  background-color: #242424;
+  display: grid;
+  grid-template-columns: 12;
+  background-color: #e5e7eb;
+  gap: 0.5rem;
+  height: 94vh;
 }
-section {
-  width: 50vw;
-  height: 100vh;
-  outline: 1px solid orange;
+.App .videoTimeline {
+  background-color: #274b93;
+  grid-column: 1/ 8;
 }
-
-video {
-  width: 100%;
+.App .sidebar {
+  background-color: #3c961c;
+  grid-column: 8 / 12;
 }
-
-canvas {
-  background: url("./court1.jpg");
-  padding: 0;
-  margin: 0;
+.App .videoTimeline {
+  display: grid;
+  grid-template-rows: 6;
 }
-/* .label-wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-} */
-.label-wrapper > div {
-  width: 100%;
+.App .video-wrapper {
+  background-color: #965f1c;
+  grid-row: 1 / 4;
 }
-.playerNumberDiv {
-  display: flex;
-  justify-content: center;
-}
-.playerNumberDiv > div {
-  outline: 1px solid orange;
-  width: fit-content;
-}
-section .info {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  height: min-content;
-  width: 100%;
-}
-section .info > div {
-  width: 24vw;
-}
-
-table td {
-  width: 6rem;
-}
-td:nth-child(4) {
-  width: 10rem;
-}
-td > tr > td {
-  text-align: left;
-  width: 5rem;
+.App .timeline-wrapper {
+  background-color: #580550;
+  grid-row: 4 / 6;
 }

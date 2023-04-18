@@ -13,7 +13,9 @@ const ShotResult = ({ value, setIspaused }) => {
   return (
     <div>
       {shotResults.map((res) => (
-        <button onClick={() => setIspaused(true)}>{res}</button>
+        <button key={res} onClick={() => setIspaused(true)}>
+          {res}
+        </button>
       ))}
     </div>
   );

@@ -64,6 +64,7 @@ export default function LabelWrapper({ videoRef, data, setData }) {
   };
 
   useEffect(() => {
+    setValue(null);
     setIspaused(false);
     setTimeStamp(null);
     setIsCanvasClicked(false);

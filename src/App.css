@@ -1,28 +1,168 @@
+ {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
 .App {
   width: 100vw;
   display: grid;
-  grid-template-columns: 12;
+  grid-template-columns: 5fr 3fr;
   background-color: #e5e7eb;
   gap: 0.5rem;
   height: 94vh;
 }
 .App .videoTimeline {
   background-color: #274b93;
-  grid-column: 1/ 8;
+  grid-column: 1 / 2;
 }
 .App .sidebar {
   background-color: #3c961c;
-  grid-column: 8 / 12;
+  grid-column: 2 / 3;
 }
-.App .videoTimeline {
+.App .videoTimeline,
+.App .sidebar {
   display: grid;
-  grid-template-rows: 6;
+  grid-template-rows: 3fr 2fr;
 }
-.App .video-wrapper {
-  background-color: #965f1c;
-  grid-row: 1 / 4;
+.App .video-wrapper,
+.App .controls-wrapper {
+  background-color: #e5e7eb;
+  grid-row: 1 / 2;
 }
-.App .timeline-wrapper {
+.App .timeline-wrapper,
+.App .players-wrapper {
   background-color: #580550;
-  grid-row: 4 / 6;
+  grid-row: 2 / 3;
+}
+.App .sidebar .controls-wrapper {
+  font-weight: bolder;
+  display: grid;
+  grid-template-rows: 3fr 7fr;
+}
+.score span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.score span:nth-child(1) {
+  background-color: #ccccf4;
+}
+
+.score span:nth-child(2) {
+  background-color: #a9a9ed;
+}
+
+.score span:nth-child(3) {
+  background-color: #eb6657;
+}
+
+.score span:nth-child(4) {
+  background-color: #fa8072;
+}
+
+.App .controls-wrapper .game-info .score {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 3fr;
+}
+
+.App .quarter .circle {
+  z-index: 2;
+  background-color: lightblue;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: solid 1px black;
+}
+.App .sidebar .input {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin: auto;
+}
+
+.App .sidebar .input button {
+  height: 6rem;
+  width: 6rem;
+  color: rgba(255, 255, 255, 0.87);
+}
+.App section {
+  height: 100%;
+}
+.App .game-info {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.App .game-info .phase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App .game-info .quarter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App .game-info .points {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.App .players-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  align-items: center;
+}
+
+.App .players-wrapper .teams-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.App .players-wrapper .team {
+  width: 45%;
+  background-color: #e5e7eb;
+}
+
+.App .players-wrapper .team .player span {
+  height: 4rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App .players-wrapper .team .player {
+  background-color: #ccccf4;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.App .players-wrapper .team .player:nth-child(even) {
+  background-color: #a9a9ed;
+  color: whitesmoke;
+}
+.App .players-wrapper .team .player button {
+  background-color: transparent;
+}
+.App .players-wrapper .team .player button span {
+  height: 100%;
+}
+.App .players-wrapper .team:nth-child(even) .player:nth-child(even) {
+  background-color: #eb6657;
+  color: whitesmoke;
 }

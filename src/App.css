@@ -19,7 +19,10 @@
   background-color: #3c961c;
   grid-column: 2 / 3;
 }
-.App .videoTimeline,
+.App .videoTimeline {
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+}
 .App .sidebar {
   display: grid;
   grid-template-rows: 3fr 2fr;
@@ -28,16 +31,36 @@
 .App .controls-wrapper {
   background-color: #0541ba;
   grid-row: 1 / 2;
+  min-height: 400px;
+  max-height: 57.6vh;
+  position: relative;
 }
 .App .video-wrapper video {
   min-width: 720px;
   max-width: 100%;
+  height: 100%;
 }
 .App .timeline-wrapper,
 .App .players-wrapper {
   background-color: #363636;
   grid-row: 2 / 3;
 }
+.App .timeline-wrapper .timeline {
+  width: 100%;
+  background: chocolate;
+  height: rem;
+  margin-top: 0.5rem;
+  display: flex;
+}
+.App .timeline-wrapper .timeline .title {
+  width: 5rem;
+  background-color: #0541ba;
+  color: antiquewhite;
+  text-align: center;
+  display: grid;
+  place-content: center;
+}
+
 .App .sidebar .controls-wrapper {
   font-weight: bolder;
   display: grid;
@@ -90,6 +113,7 @@
 .App .sidebar .input button {
   height: 6rem;
   width: 6rem;
+  padding: 0.5em;
   color: rgba(255, 255, 255, 0.87);
 }
 .App section {

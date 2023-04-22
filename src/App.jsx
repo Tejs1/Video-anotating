@@ -1,23 +1,57 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 const App = () => {
+  const [playbackRate, setPlaybackRate] = useState(1);
+
   const appRef = useRef();
   const videoRef = useRef();
   const [players, setPlayers] = useState({
     teamA: [2, 3, 4, 12, 8],
     teamB: [3, 13, 11, 8, 3],
   });
-  useEffect(() => {
-    console.log(appRef.current.clientHeight);
-  }, []);
+
+  function handlePlaybackRateChange(event) {
+    videoRef.current.playbackRate = event.target.value;
+    setPlaybackRate(event.target.value);
+  }
 
   return (
     <main className="App" ref={appRef}>
       <section className="videoTimeline">
         <div className="video-wrapper">
           <video ref={videoRef} controls src="/TIMER.mp4"></video>
+          <input
+            type="range"
+            min="0.5"
+            max="10"
+            step="0.5"
+            value={playbackRate}
+            onChange={handlePlaybackRateChange}
+          />
+          <span>{playbackRate}x</span>
         </div>
-        <div className="timeline-wrapper">Timeline</div>
+        <div className="timeline-wrapper">
+          <div className="timeline">
+            <div className="title">Name</div>
+            <div className="bar"></div>
+          </div>
+          <div className="timeline">
+            <div className="title">Number</div>
+            <div className="bar"></div>
+          </div>
+          <div className="timeline">
+            <div className="title">Tags</div>
+            <div className="bar"></div>
+          </div>
+          <div className="timeline">
+            <div className="title">Timing</div>
+            <div className="bar"></div>
+          </div>
+          <div className="timeline">
+            <div className="title">Point</div>
+            <div className="bar"></div>
+          </div>
+        </div>
       </section>
       <section className="sidebar">
         <div className="controls-wrapper">

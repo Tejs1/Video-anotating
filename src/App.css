@@ -26,8 +26,12 @@
 }
 .App .video-wrapper,
 .App .controls-wrapper {
-  background-color: #e5e7eb;
+  background-color: #0541ba;
   grid-row: 1 / 2;
+}
+.App .video-wrapper video {
+  min-width: 720px;
+  max-width: 100%;
 }
 .App .timeline-wrapper,
 .App .players-wrapper {
@@ -37,7 +41,7 @@
 .App .sidebar .controls-wrapper {
   font-weight: bolder;
   display: grid;
-  grid-template-rows: 3fr 7fr;
+  grid-template-rows: 3fr 4fr;
 }
 .score span {
   display: flex;

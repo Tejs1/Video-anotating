@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 const App = () => {
   const appRef = useRef();
+  const videoRef = useRef();
   const [players, setPlayers] = useState({
     teamA: [2, 3, 4, 12, 8],
     teamB: [3, 13, 11, 8, 3],
@@ -13,7 +14,9 @@ const App = () => {
   return (
     <main className="App" ref={appRef}>
       <section className="videoTimeline">
-        <div className="video-wrapper">video</div>
+        <div className="video-wrapper">
+          <video ref={videoRef} controls src="/TIMER.mp4"></video>
+        </div>
         <div className="timeline-wrapper">Timeline</div>
       </section>
       <section className="sidebar">

@@ -1,14 +1,15 @@
- {
+* {
   box-sizing: border-box;
   font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
 .App {
   width: 100vw;
   display: grid;
-  grid-template-columns: 5fr 3fr;
+  grid-template-columns: minmax(720px, 1fr) minmax(40%, 432px);
   background-color: #e5e7eb;
-  gap: 0.5rem;
-  height: 94vh;
+  height: 96vh;
 }
 .App .videoTimeline {
   background-color: #274b93;
@@ -30,7 +31,7 @@
 }
 .App .timeline-wrapper,
 .App .players-wrapper {
-  background-color: #580550;
+  background-color: #363636;
   grid-row: 2 / 3;
 }
 .App .sidebar .controls-wrapper {
@@ -70,8 +71,8 @@
   z-index: 2;
   background-color: lightblue;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 1rem;
+  height: 1rem;
   border: solid 1px black;
 }
 .App .sidebar .input {
@@ -139,8 +140,7 @@
 }
 
 .App .players-wrapper .team .player span {
-  height: 4rem;
-  font-size: 2rem;
+  font-size: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;

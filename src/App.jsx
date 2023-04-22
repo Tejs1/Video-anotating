@@ -1,13 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 const App = () => {
-  const videoRef = useRef();
+  const appRef = useRef();
   const [players, setPlayers] = useState({
     teamA: [2, 3, 4, 12, 8],
     teamB: [3, 13, 11, 8, 3],
   });
+  useEffect(() => {
+    console.log(appRef.current.clientHeight);
+  }, []);
+
   return (
-    <main className="App">
+    <main className="App" ref={appRef}>
       <section className="videoTimeline">
         <div className="video-wrapper">video</div>
         <div className="timeline-wrapper">Timeline</div>
@@ -49,18 +53,18 @@ const App = () => {
           </div>
           <div className="teams-wrapper">
             <div className="team">
-              {players.teamA.map((num) => (
-                <div className="player">
+              {players.teamA.map((num, idx) => (
+                <div className="player" key={idx}>
                   <span>{num}</span>
                   <button>
-                    <span class="material-symbols-outlined">edit</span>
+                    <span className="material-symbols-outlined">edit</span>
                   </button>
                 </div>
               ))}
             </div>
             <div className="team">
-              {players.teamB.map((num) => (
-                <div className="player">
+              {players.teamB.map((num, idx) => (
+                <div className="player" key={idx}>
                   <span>{num}</span>
                   <button>
                     <span class="material-symbols-outlined">edit</span>
@@ -76,10 +80,3 @@ const App = () => {
 };
 
 export default App;
-
-<div className="player">
-  <span>3</span>
-  <button>
-    <span class="material-symbols-outlined">edit</span>
-  </button>
-</div>;

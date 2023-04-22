@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 const App = () => {
   const [playbackRate, setPlaybackRate] = useState(1);
-
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const appRef = useRef();
   const videoRef = useRef();
   const [players, setPlayers] = useState({
@@ -14,21 +14,33 @@ const App = () => {
     videoRef.current.playbackRate = event.target.value;
     setPlaybackRate(event.target.value);
   }
+  function handleFullscreenChange(event) {
+    setIsFullscreen(document.fullscreenElement !== null);
+  }
 
   return (
     <main className="App" ref={appRef}>
       <section className="videoTimeline">
         <div className="video-wrapper">
-          <video ref={videoRef} controls src="/TIMER.mp4"></video>
-          <input
-            type="range"
-            min="0.5"
-            max="10"
-            step="0.5"
-            value={playbackRate}
-            onChange={handlePlaybackRateChange}
-          />
-          <span>{playbackRate}x</span>
+          <video
+            ref={videoRef}
+            controls
+            controlsList="nodownload"
+            onFullscreenChange={handleFullscreenChange}
+          >
+            <source src="/TIMER.mp4" type="video/mp4" />
+          </video>
+          <div className={`controls${isFullscreen ? " fullscreen" : ""}`}>
+            <input
+              type="range"
+              min="0.5"
+              max="10"
+              step="0.5"
+              value={playbackRate}
+              onChange={handlePlaybackRateChange}
+            />
+            <span>{playbackRate}x</span>
+          </div>
         </div>
         <div className="timeline-wrapper">
           <div className="timeline">

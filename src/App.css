@@ -68,7 +68,7 @@ video {
 }
 
 canvas {
-	background: url('./assets/court1.png');
+	background-image: url('./assets/court1.jpg');
 	padding: 0;
 	margin: 0;
 }
